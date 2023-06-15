@@ -1,22 +1,22 @@
 //1. 가장 큰 값 구하기
 
-// function maxValue(arr) {
-//     const max = Math.max (...arr);
+function maxValue(arr) {
+    const max = Math.max (...arr);
 
-//     const sortArr = arr.sort((a, b) => b - a);
-//     //오름차순 내림차순 정렬 (딥다이브 JS 531p)
+    const sortArr = arr.sort((a, b) => b - a);
+    //오름차순 내림차순 정렬 (딥다이브 JS 531p)
 
-//     const result = {
-//         max: max,
-//         sortArr: sortArr
-//     };
+    const result = {
+        max: max,
+        sortArr: sortArr
+    };
 
-//     return result;
-// }
+    return result;
+}
 
-// const numbers = [1, 2, 3, 4, 5];
-// const result = maxValue(numbers);
-// console.log(result);
+const numbers = [1, 2, 3, 4, 5];
+const result = maxValue(numbers);
+console.log(result);
 
 
 //2. 편의점 물건 확인하기
@@ -38,4 +38,6 @@
 
     stockCheck('야채곱창', 3); //전산표와 일치하지 않습니다. 출력
     stockCheck('삼각김밥', 15) //삼각김밥의 갯수가 전산표와 일치합니다 출력
+
+    //조건 세가지를 달성하는 건 실패함... 어떻게 해야할지 좀 더 고민을...
     
