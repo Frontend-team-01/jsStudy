@@ -42,7 +42,7 @@ console.log(result);
 
     stockCheck('야채곱창', 3); //전산표와 일치하지 않습니다. 출력
     stockCheck('삼각김밥', 15) //삼각김밥의 갯수가 전산표와 일치합니다 출력
-    stockCheck('사과', 2)
+    stockCheck('사과', 2) //사과 : 항목없음
 
    
     
