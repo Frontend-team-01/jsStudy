@@ -16,6 +16,7 @@ function drive() {
 }
 
 /*
+drive 함수는 시동의 on/off 상태를 console에 출력해주는 함수
 시동의 on/off 여부를 나타내는 전역변수 let onOff가 
 true일때 시동이 걸리고
 false일때 시동이 꺼진다.
@@ -40,7 +41,7 @@ function car(aux, km) {
 }
 
 /*
-car 함수의 호출(68번째 줄)로 return되는 함수는 외부함수인 car보다 생존 주기가 길다.
+car 함수의 호출(71번째 줄)로 return되는 함수는 외부함수인 car보다 생존 주기가 길다.
 이때 반환되는 함수는 외부 함수 car에 정의 되어 있는 counter 변수를 참조하고 있다.
 car 함수가 호출되어 함수를 return 하는 순간 car 실행 컨텍스트는 실행 컨텍스트 스택에서 제거된다.
 하지만 car 함수의 렉시컬 환경은 소멸되지 않고 return 되는 함수에 의해 참조된다. 
@@ -67,5 +68,5 @@ decrease 함수는 car 함수를 호출할때 car 함수의 매개변수로 입�
 drive 함수를 호출한 시점에서 onOff의 값은 false이므로 시동을 끄고 주행을 완료한다.
 */
 
-const distance = car(decrease, 25);
+const distance = car(decrease, 20);
 distance();
