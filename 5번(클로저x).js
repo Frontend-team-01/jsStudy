@@ -1,11 +1,13 @@
-let onOff;
-if (onOff === true) {
-  console.log("시동이 걸렸습니다.");
-} else {
-  console.log("시동이 꺼졌습니다.");
-} // 1~2번 구현
+let onOff = false; // 1~2번 구현
 
 function car(km) {
+  onOff = true;
+  if (onOff === true) {
+    console.log("시동이 걸렸습니다.");
+  } else {
+    console.log("시동이 꺼졌습니다.");
+  }
+
   if (km >= 40) {
     console.log("안전 위험으로 시동을 종료합니다.");
     onOff = false;
