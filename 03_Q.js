@@ -1,21 +1,21 @@
-const arr = [1, 2, 3, 4, 5];
+/* 
+---성공---
+console.log("[12,13,14,15] (값있음)")
 
-function find(arr, num) {
-    for (let i = 0; i < arr.length; i++) {
-      arr[i] += 10;
-    }
-  
-    if (arr.includes(num)) {
-      for (let k = 0; k < arr.length; k++) {
-        if (arr[k] === num) {
-          arr.shift(k, 1);
-          return arr;
-        }
-      }
-    } else {
-      return console.log("결과값이 없습니다");
-    } 
-  }
-  
-  const a = find(arr, 11);
-  console.log(a);
+---예외(실패)---
+console.log("결과값이 없습니다")
+*/
+
+const arr = [1, 2, 3, 4, 5]
+const newArr = arr.map((item, index, arr) => item + 10);
+console.log(newArr)
+
+const filterArr = newArr.filter((item) => item >=0);
+console.log(filterArr)
+
+const filterArr2 = newArr.filter((item2) => item2 < 0);
+console.log(filterArr2,"결과값이 없습니다")
+
+const spArr = filterArr.splice(1)
+console.log(spArr, "(값있음)")
+
