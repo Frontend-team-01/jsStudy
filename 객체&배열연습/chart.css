@@ -1,0 +1,113 @@
+header {
+  height: 242px;
+  margin-left: 250px;
+}
+
+main > h1 {
+  margin-left: 250px;
+}
+
+main > div:nth-of-type(1) {
+  margin-left: 250px;
+}
+
+button {
+  border-radius: 50px;
+  padding: 5px 15px 5px 15px;
+  border: 1px solid white;
+  margin-left: 20px;
+}
+
+.filter-area {
+  margin-bottom: 15px;
+}
+
+.filter-area > div {
+  margin: 20px 5px 0px 5px;
+}
+
+.guide-line {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid gainsboro;
+  border-bottom: 1px solid gainsboro;
+  margin-right: 250px;
+  margin-left: 250px;
+}
+
+.guide-line > div {
+  margin: 10px;
+}
+
+.guide-line-second {
+  display: flex;
+}
+.guide-line-second div:nth-of-type(1) {
+  margin-right: 15px;
+}
+
+.guide-line-second div:nth-of-type(2) {
+  display: flex;
+}
+
+.guide-line-second div:nth-of-type(2) > div {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#task-board {
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+.play-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0px 15px 0px;
+}
+
+.play-list div {
+  margin-left: 20px;
+}
+
+.play-list > div:nth-of-type(3) {
+  box-sizing: border-box;
+  padding-left: 50px;
+}
+
+.play-list > div:nth-of-type(4) {
+  display: flex;
+}
+
+.play-list > div:nth-of-type(4) > div:nth-of-type(2) {
+  display: flex;
+}
+
+.play-list > div:nth-of-type(4) > div:nth-of-type(2) > div {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.flow-first {
+  width: 150px;
+  height: 21.6px;
+  overflow: hidden;
+}
+
+.flow-second {
+  width: 150px;
+  height: 21.6px;
+  overflow: hidden;
+}
+
+#like-filter {
+  cursor: pointer;
+}
+
+#dance-filter {
+  cursor: pointer;
+}
+
+#ballad-filter {
+  cursor: pointer;
+}
