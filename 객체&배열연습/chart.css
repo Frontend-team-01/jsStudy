@@ -111,3 +111,12 @@ button {
 #ballad-filter {
   cursor: pointer;
 }
+
+.align {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  margin-right: 250px;
+}

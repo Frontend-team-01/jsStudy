@@ -44,26 +44,42 @@ function sortDown() {
 }
 
 // 댄스 버튼을 클릭하면 장르가 댄스인 곡(type = "dance")이 필터링 된다.
-// 장르가 댄스인 노래를 필터링 하는거까지 성공.. 렌더링은 아직 미구현 상태
 danceFilter.addEventListener("click", danceList);
 
+/*
 function danceList() {
   let danceChart;
   danceChart = chart.filter((item) => item["type"] === "댄스");
   console.log(danceChart);
   render(danceChart);
 }
+*/
 // type = "dance"인 곡까지 필터링 성공.
 // render(danceChart)로 필터링 된 값만 렌더링 하려고 하니 에러 발생
 // chart.js:74 Uncaught TypeError: Cannot read properties of undefined (reading 'name') at render
 
+function danceList() {
+  for (let j = 0; j < chart.length; j++) {
+    while (chart[j]["type"] !== "댄스") {
+      chart.splice(j, 1);
+    }
+  }
+  render(chart);
+}
+// while문을 사용하여 필터링 구현
+// 근데 왜 for문 안에 if문을 이용하면 하나밖에 삭제가 안되는지...??
+// 그리고 위에 filter 함수를 사용하면 에러가 나와서 왜 그런지 잘 모르겠다.
+
 // 발라드 버튼을 클릭하면 장르가 발라드인 곡(type = "ballad")이 필터링 된다.
-// 장르가 발라드인 노래를 필터링 하는거까지 성공.. 렌더링은 아직 미구현 상태
 balladFilter.addEventListener("click", balladList);
 
 function balladList() {
-  let balladChart = chart.filter((item) => item["type"] === "발라드");
-  console.log(balladChart);
+  for (let j = 0; j < chart.length; j++) {
+    while (chart[j]["type"] !== "발라드") {
+      chart.splice(j, 1);
+    }
+  }
+  render(chart);
 }
 
 // 화면에 1위부터 10위까지 노래를 렌더링
