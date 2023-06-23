@@ -33,12 +33,12 @@ let clk = true;
 function sortDown() {
   if (clk === true) {
     chart.sort((a, b) => a["num"] - b["num"]);
-    render();
+    render(chart);
     return (clk = false);
   }
   if (!clk) {
     chart.sort((a, b) => b["num"] - a["num"]);
-    render();
+    render(chart);
     return (clk = true);
   }
 }
@@ -48,9 +48,14 @@ function sortDown() {
 danceFilter.addEventListener("click", danceList);
 
 function danceList() {
-  let danceChart = chart.filter((item) => item["type"] === "댄스");
+  let danceChart;
+  danceChart = chart.filter((item) => item["type"] === "댄스");
   console.log(danceChart);
+  render(danceChart);
 }
+// type = "dance"인 곡까지 필터링 성공.
+// render(danceChart)로 필터링 된 값만 렌더링 하려고 하니 에러 발생
+// chart.js:74 Uncaught TypeError: Cannot read properties of undefined (reading 'name') at render
 
 // 발라드 버튼을 클릭하면 장르가 발라드인 곡(type = "ballad")이 필터링 된다.
 // 장르가 발라드인 노래를 필터링 하는거까지 성공.. 렌더링은 아직 미구현 상태
@@ -62,171 +67,19 @@ function balladList() {
 }
 
 // 화면에 1위부터 10위까지 노래를 렌더링
-function render() {
+function render(arr) {
   let resultHTML = "";
-  resultHTML += `
+  for (let i = 0; i < chart.length; i++) {
+    resultHTML += `
   <div class="play-list">
-          <div>1</div>
+          <div>${i + 1}</div>
           <div>
-            <div class="flow-first">${chart[0]["name"]}</div>
-            <div>${chart[0]["group"]}</div>
+            <div class="flow-first">${arr[i]["name"]}</div>
+            <div>${arr[i]["group"]}</div>
           </div>
-          <div class="flow-second">${chart[0]["album"]}</div>
+          <div class="flow-second">${arr[i]["album"]}</div>
           <div>
-            <div>❤️ ${chart[0]["num"]}</div>
-            <div>
-              <div>></div>
-              <div>+</div>
-              <div>v</div>
-              <div>>></div>
-            </div>
-          </div>
-        </div>
-        <div class="play-list">
-          <div>2</div>
-          <div>
-            <div class="flow-first">${chart[1]["name"]}</div>
-            <div>${chart[1]["group"]}</div>
-          </div>
-          <div class="flow-second">${chart[1]["album"]}</div>
-          <div>
-            <div>❤️ ${chart[1]["num"]}</div>
-            <div>
-              <div>></div>
-              <div>+</div>
-              <div>v</div>
-              <div>>></div>
-            </div>
-          </div>
-        </div>
-        <div class="play-list">
-          <div>3</div>
-          <div>
-            <div class="flow-first">${chart[2]["name"]}</div>
-            <div>${chart[2]["group"]}</div>
-          </div>
-          <div class="flow-second">${chart[2]["album"]}</div>
-          <div>
-            <div>❤️ ${chart[2]["num"]}</div>
-            <div>
-              <div>></div>
-              <div>+</div>
-              <div>v</div>
-              <div>>></div>
-            </div>
-          </div>
-        </div>
-        <div class="play-list">
-          <div>4</div>
-          <div>
-            <div class="flow-first">${chart[3]["name"]}</div>
-            <div>${chart[3]["group"]}</div>
-          </div>
-          <div class="flow-second">${chart[3]["album"]}</div>
-          <div>
-            <div>❤️ ${chart[3]["num"]}</div>
-            <div>
-              <div>></div>
-              <div>+</div>
-              <div>v</div>
-              <div>>></div>
-            </div>
-          </div>
-        </div>
-        <div class="play-list">
-          <div>5</div>
-          <div>
-            <div class="flow-first">${chart[4]["name"]}</div>
-            <div>${chart[4]["group"]}</div>
-          </div>
-          <div class="flow-second">${chart[4]["album"]}</div>
-          <div>
-            <div>❤️ ${chart[4]["num"]}</div>
-            <div>
-              <div>></div>
-              <div>+</div>
-              <div>v</div>
-              <div>>></div>
-            </div>
-          </div>
-        </div>
-        <div class="play-list">
-          <div>6</div>
-          <div>
-            <div class="flow-first">${chart[5]["name"]}</div>
-            <div>${chart[5]["group"]}</div>
-          </div>
-          <div class="flow-second">${chart[5]["album"]}</div>
-          <div>
-            <div>❤️ ${chart[5]["num"]}</div>
-            <div>
-              <div>></div>
-              <div>+</div>
-              <div>v</div>
-              <div>>></div>
-            </div>
-          </div>
-        </div>
-        <div class="play-list">
-          <div>7</div>
-          <div>
-            <div class="flow-first">${chart[6]["name"]}</div>
-            <div>${chart[6]["group"]}</div>
-          </div>
-          <div class="flow-second">${chart[6]["album"]}</div>
-          <div>
-            <div>❤️ ${chart[6]["num"]}</div>
-            <div>
-              <div>></div>
-              <div>+</div>
-              <div>v</div>
-              <div>>></div>
-            </div>
-          </div>
-        </div>
-        <div class="play-list">
-          <div>8</div>
-          <div>
-            <div class="flow-first">${chart[7]["name"]}</div>
-            <div>${chart[7]["group"]}</div>
-          </div>
-          <div class="flow-second">${chart[7]["album"]}</div>
-          <div>
-            <div>❤️ ${chart[7]["num"]}</div>
-            <div>
-              <div>></div>
-              <div>+</div>
-              <div>v</div>
-              <div>>></div>
-            </div>
-          </div>
-        </div>
-        <div class="play-list">
-          <div>9</div>
-          <div>
-            <div class="flow-first">${chart[8]["name"]}</div>
-            <div>${chart[8]["group"]}</div>
-          </div>
-          <div class="flow-second">${chart[8]["album"]}</div>
-          <div>
-            <div>❤️ ${chart[8]["num"]}</div>
-            <div>
-              <div>></div>
-              <div>+</div>
-              <div>v</div>
-              <div>>></div>
-            </div>
-          </div>
-        </div>
-        <div class="play-list">
-          <div>10</div>
-          <div>
-            <div class="flow-first">${chart[9]["name"]}</div>
-            <div>${chart[9]["group"]}</div>
-          </div>
-          <div class="flow-second">${chart[9]["album"]}</div>
-          <div>
-            <div>❤️ ${chart[9]["num"]}</div>
+            <div>❤️ ${arr[i]["num"]}</div>
             <div>
               <div>></div>
               <div>+</div>
@@ -236,7 +89,8 @@ function render() {
           </div>
         </div>
   `;
+  }
   document.getElementById("task-board").innerHTML = resultHTML;
 }
 
-render();
+render(chart);
