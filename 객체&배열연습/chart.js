@@ -25,6 +25,8 @@ let chart = [
 let likeFilter = document.getElementById("like-filter");
 let danceFilter = document.getElementById("dance-filter");
 let balladFilter = document.getElementById("ballad-filter");
+let inputBox = document.getElementById("input-box");
+let searchSong = document.getElementById("search");
 
 // 좋아요▼를 한 번 클릭하면 좋아요 순서대로 내림차순 정렬, 한 번 더 클릭하면 오름차순 정렬
 likeFilter.addEventListener("click", sortDown);
@@ -76,6 +78,18 @@ balladFilter.addEventListener("click", balladList);
 function balladList() {
   for (let j = 0; j < chart.length; j++) {
     while (chart[j]["type"] !== "발라드") {
+      chart.splice(j, 1);
+    }
+  }
+  render(chart);
+}
+
+// input 박스 안에 노래명을 입력하고 검색을 클릭하면 해당 노래를 필터링 해준다.
+searchSong.addEventListener("click", songName);
+
+function songName() {
+  for (let j = 0; j < chart.length; j++) {
+    if (inputBox.value !== chart[j]["name"]) {
       chart.splice(j, 1);
     }
   }
