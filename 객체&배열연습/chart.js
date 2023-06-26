@@ -48,26 +48,26 @@ function sortDown() {
 // 댄스 버튼을 클릭하면 장르가 댄스인 곡(type = "dance")이 필터링 된다.
 danceFilter.addEventListener("click", danceList);
 
-/*
 function danceList() {
   let danceChart;
   danceChart = chart.filter((item) => item["type"] === "댄스");
   console.log(danceChart);
   render(danceChart);
 }
-*/
+
 // type = "dance"인 곡까지 필터링 성공.
 // render(danceChart)로 필터링 된 값만 렌더링 하려고 하니 에러 발생
 // chart.js:74 Uncaught TypeError: Cannot read properties of undefined (reading 'name') at render
 
-function danceList() {
-  for (let j = 0; j < chart.length; j++) {
-    while (chart[j]["type"] !== "댄스") {
-      chart.splice(j, 1);
-    }
-  }
-  render(chart);
-}
+// function danceList() {
+//   for (let j = 0; j < chart.length; j++) {
+//     while (chart[j]["type"] !== "댄스") {
+//       chart.splice(j, 1);
+//     }
+//   }
+//   render(chart);
+// }
+
 // while문을 사용하여 필터링 구현
 // 근데 왜 for문 안에 if문을 이용하면 하나밖에 삭제가 안되는지...??
 // 그리고 위에 filter 함수를 사용하면 에러가 나와서 왜 그런지 잘 모르겠다.
@@ -88,18 +88,22 @@ function balladList() {
 searchSong.addEventListener("click", songName);
 
 function songName() {
-  for (let j = 0; j < chart.length; j++) {
-    if (inputBox.value !== chart[j]["name"]) {
-      chart.splice(j, 1);
-    }
-  }
-  render(chart);
+  // for (let j = 0; j < chart.length; j++) {
+  //   if (inputBox.value !== chart[j]["name"]) {
+  //     chart.splice(j, 1);
+  //   }
+  // }
+  const filter = chart.filter((song) => song.name === inputBox.value);
+  render(filter);
 }
 
 // 화면에 1위부터 10위까지 노래를 렌더링
+
 function render(arr) {
   let resultHTML = "";
-  for (let i = 0; i < chart.length; i++) {
+  // chart.length가 아닌 arr.length를 사용
+  // chart.length를 사용하면 원본 배열의 length가 달라지고, 값이 undefined가 되어서 에러 발생
+  for (let i = 0; i < arr.length; i++) {
     resultHTML += `
   <div class="play-list">
           <div>${i + 1}</div>
