@@ -22,9 +22,7 @@ const division = (arr, n) => {
     return newArray;
 }
 
-const myArray = Array(80)
-  .fill()
-  .map((_, i) => i + 1); 
+const myArray = Array(80).fill().map((_, i) => i + 1); 
 
 const newArray = division(myArray, 5);
 console.log(newArray)
