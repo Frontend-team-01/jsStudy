@@ -6,14 +6,23 @@ window.onload = function () {
 
 // DOM 플로우 2번
 const $tab = document.getElementsByClassName("tab");
-const $class = document.getElementsByClassName("class");
 const fontcolor = ["red", "orange", "yellow", "green", "blue"];
+let hover = true;
 
 function color() {
   for (let i = 0; i < $tab.length; i++) {
     $tab[i].addEventListener("mouseenter", function () {
-      $tab[i].style.color = fontcolor[i];
-      $tab[i].style.backgroundColor = "black";
+      if (hover === true) {
+        $tab[i].style.color = fontcolor[i];
+        $tab[i].style.backgroundColor = "black";
+        hover = false;
+        return hover;
+      } else {
+        $tab[i].style.color = "black";
+        $tab[i].style.backgroundColor = "white";
+        hover = true;
+        return hover;
+      }
     });
   }
 }
@@ -21,18 +30,19 @@ function color() {
 color();
 
 // DOM 플로우 3번
-const id_1 = document.getElementById("one");
-const id_2 = document.getElementById("two");
-const id_3 = document.getElementById("three");
-const id_4 = document.getElementById("four");
-const id_5 = document.getElementById("five");
-
-const idAll = [id_1, id_3, id_2, id_5, id_4];
+const $block = document.getElementsByClassName("block");
 
 function display() {
   for (let i = 0; i < $tab.length; i++) {
+    // 첫 번째 for문 >> i번째 tab를 클릭하면
     $tab[i].addEventListener("click", function () {
-      idAll[i].style.display = "none";
+      for (let j = 0; j < $block.length; j++) {
+        if (!$block[j].textContent.includes($tab[i].textContent)) {
+          // 만약 $block[j]번째 요소의 텍스트에 $tab[i]의 텍스트가 포함되어 있지 않다면
+          $block[j].style.display = "none";
+          // 해당 $block[j]번째 요소의 display 속성을 "none"으로 변경
+        }
+      }
     });
   }
 }
