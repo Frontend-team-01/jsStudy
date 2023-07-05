@@ -46,7 +46,7 @@
       // 4번문제
        const $input = document.getElementById("te_input")
        function onlyKorean(){
-            const regexp = /[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g //한글이 아닌 모든 문자를 찾아라
+            const regexp = /[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣|a-z|A-Z]/g //숫자가 아닌 모든 문자를 찾아라
             const inputValue =
             $input.value = $input.value.replace(regexp,"")     
       }
