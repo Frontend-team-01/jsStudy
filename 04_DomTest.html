@@ -39,7 +39,7 @@
         4. 아래의 입력창에 숫자가 입력되지 않도록 하고 길이 제한은 10자로 하시오. <br />숫자가 입력된다면 숫자가 입력되었다고 alert로
         알려주시오
       </p>
-      <input type="text" id="te_input" maxlength="10" placeholder="글자만 입력하세요." onInput="onlyKorean()" />
+      <input type="text" id="te_input" maxlength="10" placeholder="글자만 입력하세요." onInput="onlyKorean()" onkeypress='return checkNumber(event)' />
 
   
     <script>
@@ -48,9 +48,15 @@
        function onlyKorean(){
             const regexp = /[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g //한글이 아닌 모든 문자를 찾아라
             const inputValue =
-            $input.value = $input.value.replace(regexp,"")
+            $input.value = $input.value.replace(regexp,"")     
       }
-      
+      function checkNumber(event){
+        if(event.key == true){
+          alert("문자를 입력하시오")
+        } else {
+           onlyKorean();
+        }
+      }
     </script>
   </body>
 </html>
