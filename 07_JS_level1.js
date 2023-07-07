@@ -42,22 +42,23 @@ function submitBtn(){
     if(content.length==12){
   // alert('계좌가 입력되었습니다.')
         let formatNum = '';
-          if(bankList[0]){
+          if(document.banks.option[0].selected){
+            alert('성용은행이 선택되었습니다')
             console.log(content)
             formatNum = content.replace(/(\d{2})(\d{8})(\d{2})/, '$1-********-$3')
-          } else if (bankList[1]){
+          } else if (document.banks.option[1].selected){
             formatNum = content.replace(/(\d{2})(\d{7})(\d{3})/, '$1-$2-***')
-          } else if (bankList[2]){
+          } else if (document.banks.option[2].selected){
             formatNum = content.replace(/(\d{2})(\d{6})(\d{4})/, '$1-******-$3')
-          } else if (bankList[3]){
+          } else if (document.banks.option[3].selected){
             formatNum = content.replace(/(\d{3})(\d{3})(\d{4})(\d{3})/, '$1-$2-****-$3')
-          } else if (bankList[4]){
+          } else if (document.banks.option[4].selected){
             formatNum = content.replace(/(\d{2})(\d{4})(\d{6})/, '$1-****-$3')
-          } else if (bankList[5]){
+          } else if (document.banks.option[5].selected){
             formatNum = content.replace(/(\d{2})(\d{9})(\d{1})/, '$1-*********-$3')
-          } else if (bankList[6]){
+          } else if (document.banks.option[6].selected){
             formatNum = content.replace(/(\d{2})(\d{4})(\d{6})/, '$1-****-$3')
-          } else if (bankList[7]){
+          } else if (document.banks.option[7].selected){
             formatNum = content.replace(/(\d{2})(\d{2})(\d{8})/, '$1-$2-********')
           }
         
