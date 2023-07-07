@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Document</title>
+    <style>
+      select{width: 170px;}
+    </style>
+  </head>
+  <body>
+    <form id="account-send-form">
+      <p>
+        은행선택:
+        <select id="bank-selector">
+          <option id="1">성용은행</option>
+          <option id="2">사과은행</option>
+          <option id="3">코딩은행</option>
+          <option id="4">자바은행</option>
+          <option id="5">파이은행</option>
+          <option id="6">리엑은행</option>
+          <option id="7">자스은행</option>
+          <option id="8">모두은행</option>
+        </select>
+      </p>
+      <p>
+        계좌입력:
+        <input type="number" id="account-input" maxlength="12" placeholder="-제외한 12자리 입력해주세요"/>
+      </p>
+      <button onclick="submitBtn()">제출</button>
+    </form>
+    <ul id="account-list">
+      <li>성용은행 : 12-********-34</li>
+    </ul>
+      
+    <script defer src="./07_JS_level1.js"></script>
+  </body>
+</html>
