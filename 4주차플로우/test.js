@@ -43,7 +43,7 @@ function render() {
     resultHTML += `<div class="display">
       <div>${list[i].item}</div>
       <div>
-      <button onclick="deleteTask('${list[i].itemId}')">삭제</button>
+      <button onclick="deleteItem('${list[i].itemId}')">삭제</button>
       <button>수정</button>
       </div>
     </div>
@@ -59,7 +59,7 @@ function reset() {
 }
 
 // 삭제
-function deleteTask(id) {
+function deleteItem(id) {
   for (let j = 0; j < list.length; j++) {
     if (list[j].itemId === id) {
       list.splice(j, 1);
