@@ -55,28 +55,30 @@ export const RESERVATION_LIST = [
     number: "0000-0000-0000",
   },
 ];
+
 const form = document.getElementsByTagName("form")[0];
 
 form.addEventListener("submit", (e) => {
   event.preventDefault();
 });
 
-const userName = document.getElementById("user-name");
-const userPhone = document.getElementById("user-phone");
-const user = document.querySelector("button");
+let userName = document.getElementById("user-name");
+let userPhone = document.getElementById("user-phone");
+let eventBtn = document.querySelector("button");
 
-user.addEventListener("click", find);
+eventBtn.addEventListener("click", show);
+// 버튼을 클릭하면 show 함수가 실행
 
-console.log(RESERVATION_LIST[0]["number"]);
-
-function find() {
-  let resultHTML = "";
-  for (let i = 0; i < RESERVATION_LIST.length; i++) {
-    if (userName === RESERVATION_LIST[i]["name"] && userPhone === RESERVATION_LIST[i]["phone"]) {
-      resultHTML += `<div>${RESERVATION_LIST[i]["number"]}</div>`;
-    } else {
-      alert("일치하는 내역이 없습니다");
-    }
+function show() {
+  let find = RESERVATION_LIST.find((user) => user["name"] === userName.value && user["phone"] === userPhone.value);
+  // 변수 find에 input에 입력한 이름&번호를 가진 객체를 할당
+  if (find) {
+    let num = find["number"];
+    // 변수 num에 find 객체의 number값을 할당
+    let resultHTML = "";
+    resultHTML += `<div>${num}</div>`;
+    document.getElementById("reservation-number").innerHTML = resultHTML;
+  } else {
+    return alert("일치하는 내역이 없습니다.");
   }
-  document.getElementById("reservation-number").innerHTML = resultHTML;
 }

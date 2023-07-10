@@ -1,4 +1,4 @@
-import { RESERVATION_LIST } from './reservation .js';
+import { RESERVATION_LIST } from "./reservation .js";
 console.log(RESERVATION_LIST);
 
 /* 
