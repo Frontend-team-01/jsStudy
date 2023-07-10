@@ -6,3 +6,9 @@ console.log(RESERVATION_LIST);
 
 
 */
+
+const form = document.getElementsByTagName("form")[0];
+
+form.addEventListener("submit", (e) => {
+  event.preventDefault();
+});

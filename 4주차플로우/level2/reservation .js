@@ -56,12 +56,6 @@ export const RESERVATION_LIST = [
   },
 ];
 
-const form = document.getElementsByTagName("form")[0];
-
-form.addEventListener("submit", (e) => {
-  event.preventDefault();
-});
-
 let userName = document.getElementById("user-name");
 let userPhone = document.getElementById("user-phone");
 let eventBtn = document.querySelector("button");
@@ -71,14 +65,16 @@ eventBtn.addEventListener("click", show);
 
 function show() {
   let find = RESERVATION_LIST.find((user) => user["name"] === userName.value && user["phone"] === userPhone.value);
-  // 변수 find에 input에 입력한 이름&번호를 가진 객체를 할당
+  // find에 할당되는 객체는 내가 입력한 이름&번호를 가진 객체
   if (find) {
+    // 만약 find가 true이면 아래 구문을 실행
     let num = find["number"];
-    // 변수 num에 find 객체의 number값을 할당
+    // num 변수에는 내가 입력한 이름&번호를 가진 객체의 number값이 할당된다.
     let resultHTML = "";
     resultHTML += `<div>${num}</div>`;
     document.getElementById("reservation-number").innerHTML = resultHTML;
   } else {
+    // find가 false이면 alert창을 띄움.
     return alert("일치하는 내역이 없습니다.");
   }
 }
