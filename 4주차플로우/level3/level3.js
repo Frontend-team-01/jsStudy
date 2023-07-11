@@ -16,13 +16,14 @@ appendItem.addEventListener("click", append);
 const itemList = [];
 const gramList = [];
 
+// 추가 이벤트
 function append() {
   let obj = {
     name: item.value,
     id: randomID(),
   };
   // click 이벤트가 발생하면 input태그의 값(item.value)를 itemList에 push
-  // click 이벤트가 발생하면 input태그의 값(gram.value)를 itemList에 push
+  // click 이벤트가 발생하면 input태그의 값(gram.value)를 gramList에 push
   itemList.push(obj["name"]);
   gramList.push(gram.value);
   // result 객체를 생성
@@ -74,6 +75,7 @@ function randomID() {
 //   render();
 // }
 
+// 제출 이벤트
 submitItem.addEventListener("click", submit);
 
 function submit() {
