@@ -30,7 +30,7 @@ const form = document.getElementsByTagName("form")[0];
     }
   
     function delete_row() {
-      var my_tbody = document.getElementById('my-tbody');
+      let my_tbody = document.getElementById('my-tbody');
       if (my_tbody.rows.length < 1) return;
       // my_tbody.deleteRow(0); // 상단부터 삭제
       my_tbody.deleteRow( my_tbody.rows.length-1 ); // 하단부터 삭제
