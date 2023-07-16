@@ -12,11 +12,13 @@ const gram = document.getElementById("second");
 const appendItem = document.querySelector("button");
 const submitItem = document.getElementById("submit_button");
 const bodyItem = document.querySelector("tbody");
-appendItem.addEventListener("click", append);
 const itemList = [];
 const gramList = [];
 
 // 추가 이벤트
+
+appendItem.addEventListener("click", append);
+
 function append() {
   let obj = {
     name: item.value,
@@ -33,7 +35,7 @@ function append() {
     result[x] = (result[x] || 0) + 1;
   });
   console.log(result);
-  // item.value의 value가 1이 아니면, 중복값이 발생하면 item.value의 갯수가 2 이상이 됨.
+  // item.value의 value가 1이 아니면, 즉 중복값이 발생하면 item.value의 갯수가 2 이상이 됨.
   if (!(result[item.value] === 1)) {
     // 중복값 발생시 itemList에 마지막 인덱스(중복값)을 제거한다.
     // 삭제 이벤트를 하지 않을 경우 "itemList.pop();" 구문은 생략 가능
@@ -53,29 +55,34 @@ function render() {
     elements.innerHTML = `
     <td>${itemList[i]}</td>
     <td>${gramList[i]}</td>
-    <td><button onclick="deleteItem('${itemList[i].id}')">삭제</button></td>
     `;
+
+    // document.createElement('td')
+    // document.createElement('button').addEventListener()
+    // td . apped(but)
+
+    // elements.appendChild(td)
   }
-  bodyItem.insertBefore(elements, null);
+  bodyItem.appendChild(elements);
   console.log(itemList);
+
+  // let delList = document.querySelectorAll(".delete");
+  // for (let i = 0; i < delList.length; i++) {
+  //   delList[i].addEventListener("click", function () {
+  //     bodyItem.removeChild(elements)[i];
+  //   });
+  // }
 }
 
+// 삭제 이벤트를 위해서 고유 id를 생성하는 함수
 function randomID() {
   return Math.random().toString(36).substr(2, 16);
 }
 
-// function deleteItem(val) {
-//   for (let i = 0; i < itemList.length; i++) {
-//     if (itemList[i].id === val) {
-//       itemList.splice(i, 1);
-//       gramList.splice(i, 1);
-//       break;
-//     }
-//   }
-//   render();
-// }
+// 삭제 이벤트
 
 // 제출 이벤트
+
 submitItem.addEventListener("click", submit);
 
 function submit() {
